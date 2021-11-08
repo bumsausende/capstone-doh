@@ -1,10 +1,19 @@
 import Link from "next/link";
-import { ReactBurgerMenu } from "react-burger-menu";
-import { slide as Menu} from "react-burger-menu"
 import styled from "styled-components";
 
 
-export default function BurgerMenu({ open, onClick }) {
+
+
+
+
+
+
+
+
+
+
+
+/*export default function BurgerMenu({ open, onClick }) {
     return (
       <Nav open={open}>
         <StyledLink to="/home" onClick={onClick}>
@@ -27,4 +36,4 @@ export default function BurgerMenu({ open, onClick }) {
   }
 const Nav = styled.section `
 `;
-const StyledLink = styled.section ``;
+const StyledLink = styled.section ``;*/

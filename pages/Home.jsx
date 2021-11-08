@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import React from "react";
@@ -9,9 +9,12 @@ import Head from "next/dist/shared/lib/head";
 
 const Home = () => {
     return (
+        <ThemeProvider theme={theme}>
+            <>
     <StyledHead>
     <span>Whats happen here?</span>
-    </StyledHead>
+    </StyledHead></>
+    </ThemeProvider>
 
     )
 };

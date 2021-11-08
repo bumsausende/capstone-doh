@@ -5,7 +5,7 @@ import React from "react";
 import Head from "next/dist/shared/lib/head";
 import {BurgerMenu} from "/components/BurgerMenu";
 
-const Head =()=>{
+const Header =()=>{
 return (
     <StyledHeader>
         <div className="Bar">
@@ -22,3 +22,4 @@ export default Header;
 //insert current page props
 
 const StyledHeader = styled.section ``;
+const Nav = styled.section ``;
