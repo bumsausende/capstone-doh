@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
 import Home from "./Home";
 
+
 function IndexPage() {
   return (
     <>
       <Head>
-        <title>START DOH</title>
+        <title>DOH!</title>
         <meta name="description" content="Next.js Capstone Project" />
       </Head>
       <IndexPageContainer className="StartScreen">
@@ -41,4 +41,3 @@ export default IndexPage;
 const image = styled.section``;
 const IndexPageContainer = styled.section``;
 const Button = styled.section``;
-
