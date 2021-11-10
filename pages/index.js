@@ -43,5 +43,6 @@ export default IndexPage;
 const image = styled.section`
 
 `;
-const IndexPageContainer = styled.section``;
+const IndexPageContainer = styled.section`
+`;
 const Button = styled.section``;
