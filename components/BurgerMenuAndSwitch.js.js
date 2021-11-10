@@ -43,11 +43,13 @@ export const DarkModeSwitch = () => {
       icon={<HamburgerIcon/>}
       display={["flex","flex","none","none"]}
       onClick={()=> setChangeDisplay("flex")}/>
-       <Switch color="green" isChecked={isDark} onChange={toggleColorMode} />
+
+    {/* <Switch color="green" isChecked={isDark} onChange={toggleColorMode} /> */}
+
     </Flex>
     <Flex
     width="100vw"
-    bgColor="gray.50"
+    bgColor= "#499890"
     zIndex={20}
     height="100vh"
     position="fixed"

@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import React from "react";
 import Head from "next/head";
-import { DarkModeSwitch } from "../components/DarkSwitchMode";
+import { DarkModeSwitch } from "../components/BurgerMenuAndSwitch.js";
+import GlobalStyles from "../styles/GlobalStyles.js";
 
 const Home = () => {
   return (
@@ -12,8 +13,10 @@ const Home = () => {
 
         <StyledHead>
           <span>Whats happen here?</span>
+        
+        <DarkModeSwitch/>
         </StyledHead>
-        <DarkModeSwitch></DarkModeSwitch>
+        <Main></Main>
       </>
    
   );
@@ -26,7 +29,10 @@ const StyledHead = styled.section`
   font-family:"Lekton";
   font-size: 10vw;
   margin: 3rem;
-
+  background-color:#5DC8A8;
   flex-direction:row-reverse;
 
 `;
+const Main = styled.section `
+
+ `;

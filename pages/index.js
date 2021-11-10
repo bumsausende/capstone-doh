@@ -4,6 +4,7 @@ import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
 import Home from "./Home";
+import GlobalStyles from "../styles/GlobalStyles";
 
 
 function IndexPage() {
@@ -17,8 +18,8 @@ function IndexPage() {
         <Image
           src="/starLOGO.png"
           alt="logo"
-          width={300}
-          height={600}
+          width={200}
+          height={500}
           layout="responsive"
         />
         <Link href="/Home">
@@ -26,9 +27,10 @@ function IndexPage() {
             <Image
               src="/buttonLOS.png"
               alt="los button"
-              width={50}
-              height={50}
-              layout="intrinsic"
+              width={100}
+              height={100}
+            
+            
             />
           </a>
         </Link>
@@ -38,6 +40,8 @@ function IndexPage() {
 }
 export default IndexPage;
 
-const image = styled.section``;
+const image = styled.section`
+
+`;
 const IndexPageContainer = styled.section``;
 const Button = styled.section``;
