@@ -78,7 +78,7 @@ useless switchmode, just testing*/
             aria-label="Close Menu"
             size="lg"
             icon={<CloseIcon />}
-            onClick={() => setChangeDisplay("none")}
+            onClick={() => setIsOpen(false)}
           />
         </Flex>
         <Flex flexDirection="column" align="center">
