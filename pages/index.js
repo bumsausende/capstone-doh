@@ -4,7 +4,8 @@ import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
 import Home from "./Home";
-import GlobalStyles from "../styles/GlobalStyles";
+import {GlobalStyles} from "../styles/GlobalStyles";
+import { color } from "@chakra-ui/styled-system";
 
 
 function IndexPage() {
@@ -16,16 +17,16 @@ function IndexPage() {
       </Head>
       <IndexPageContainer className="StartScreen">
         <Image
-          src="/starLOGO.png"
+          src="/images/starLOGO.png"
           alt="logo"
-          width={200}
+          width={400}
           height={500}
           layout="responsive"
         />
         <Link href="/Home">
           <a>
             <Image
-              src="/buttonLOS.png"
+              src="/images/buttonLOS.png"
               alt="los button"
               width={100}
               height={100}
@@ -44,5 +45,6 @@ const image = styled.section`
 
 `;
 const IndexPageContainer = styled.section`
+background-color: #5dc8a8;
 `;
 const Button = styled.section``;

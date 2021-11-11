@@ -20,7 +20,7 @@ useless switchmode, just testing*/
   return (
     <>
       <Flex>
-        <Flex position="fixed" top="1rem" right="1rem" align="center">
+        <Flex position="fixed" top="1rem" right="1rem" align="center" color="#FFC12C">
           <Flex display={["none", "none", "flex", "flex"]}>
             <NextLink href="/Home" passHref>
               <Button as="a" variant="ghost" aria-label="Home" my={5} w="100%">
@@ -28,7 +28,7 @@ useless switchmode, just testing*/
               </Button>
             </NextLink>
             <NextLink href="/toDOH" passHref>
-              <Button as="a" variant="ghost" aria-label="Home" my={5} w="100%">
+              <Button as="a" variant="ghost" aria-label="toDOH" my={5} w="100%">
                 toDOH
               </Button>
             </NextLink>
@@ -88,7 +88,7 @@ useless switchmode, just testing*/
             </Button>
           </NextLink>
           <NextLink href="/toDOH" passHref>
-            <Button as="a" variant="ghost" aria-label="Home" my={5} w="100%">
+            <Button as="a" variant="ghost" aria-label="toDOH" my={5} w="100%">
               toDOH
             </Button>
           </NextLink>

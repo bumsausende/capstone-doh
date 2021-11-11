@@ -4,17 +4,15 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Head from "next/head";
 import { BurgerMenu } from "../components/BurgerMenuAndSwitch.js";
-import GlobalStyles from "../styles/GlobalStyles.js";
+import { GlobalStyles } from "../styles/GlobalStyles.js";
 import { Flex, Button } from "@chakra-ui/layout";
 import Header from "../components/Header.jsx";
 import Image from "next/image";
 
-
 const Home = () => {
   return (
     <>
-      <Header 
-      />
+      <div><Header position="fixed"/></div>
 
       <Main>
         <Flex>
@@ -23,34 +21,28 @@ const Home = () => {
           to do. or just do something nice that you didnt know you liked.
         </Flex>
         <Flex>
-          <Link className="toDOHLink" href="/toDOH"> 
-          <a>
-        <Image 
-          src="/starLOGO.png"
-          alt="logo"
-          width={50}
-          height={100}
-        /></a></Link></Flex>
+          <Link className="toDOHLink" href="/toDOH">
+            <a>
+              <Image
+                src="/images/starLOGO.png"
+                alt="logo"
+                width={100}
+                height={150}
+              />
+            </a>
+          </Link>
+        </Flex>
       </Main>
     </>
   );
 };
 export default Home;
 
-const StyledHeader = styled.section`
-  position: fixed;
-  color: #ffc12c;
-  font-family: "Lekton";
-  font-size: 7vw;
-  background-color: #5dc8a8;
-  display: flex;
-  flex-direction: row;
-`;
 const Main = styled.section`
   box-sizing: border-box;
   margin-top: 10rem;
   padding: 0;
   background-color: #5dc8a8;
   font-family: "Lekton";
-  color:#ffc12c;
+  color: #ffc12c;
 `;
