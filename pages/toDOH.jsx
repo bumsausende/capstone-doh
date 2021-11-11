@@ -34,10 +34,11 @@ import {
 ];
   
 function toDOHOutput({ name, id }) {
+    const shuffled = toDOHs.sort(() => 0.5 - Math.random());
     return (
       <ul>
         {toDOHs.map((toDOH) => (
-          <li >{toDOH.name} {toDOH.description1} {toDOH.description2}</li>
+          <li key={id} >{toDOH.name} {toDOH.description1} {toDOH.description2}</li>
         ))}
       </ul>
     )
