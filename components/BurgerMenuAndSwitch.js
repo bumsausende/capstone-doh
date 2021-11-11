@@ -68,7 +68,7 @@ useless switchmode, just testing*/
         left="0"
         overflow="auto"
         flexDirection="column"
-        display={changeDisplay}
+        display={isOpen ? 'flex' : 'none'}
       >
         <Flex justify="flex-start">
           <IconButton
