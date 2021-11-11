@@ -16,7 +16,7 @@ const isDark = colorMode === "dark";
 useless switchmode, just testing*/
   }
 
-  const [changeDisplay, setChangeDisplay] = useState("none");
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <Flex>
