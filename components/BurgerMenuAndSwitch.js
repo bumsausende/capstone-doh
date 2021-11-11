@@ -52,7 +52,7 @@ useless switchmode, just testing*/
           mr={2}
           icon={<HamburgerIcon />}
           display={["flex", "flex", "none", "none"]}
-          onClick={() => setChangeDisplay("flex")}
+          onClick={() => setIsOpen(true)}
         />
 
         {/* <Switch color="green" isChecked={isDark} onChange={toggleColorMode} /> */}
