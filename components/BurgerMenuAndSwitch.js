@@ -10,11 +10,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 
 export const BurgerMenu = () => {
-  {
-    /*const { colorMode, toggleColorMode } = useColorMode();
-const isDark = colorMode === "dark";
-useless switchmode, just testing*/
-  }
+  
 
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -55,7 +51,7 @@ useless switchmode, just testing*/
           onClick={() => setIsOpen(true)}
         />
 
-        {/* <Switch color="green" isChecked={isDark} onChange={toggleColorMode} /> */}
+        
       </Flex>
       <Flex
         color="#FFC12C"
