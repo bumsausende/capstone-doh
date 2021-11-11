@@ -10,13 +10,9 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 
 export const BurgerMenu = () => {
-  {
-    /*const { colorMode, toggleColorMode } = useColorMode();
-const isDark = colorMode === "dark";
-useless switchmode, just testing*/
-  }
+  
 
-  const [changeDisplay, setChangeDisplay] = useState("none");
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <Flex>
@@ -52,10 +48,10 @@ useless switchmode, just testing*/
           mr={2}
           icon={<HamburgerIcon />}
           display={["flex", "flex", "none", "none"]}
-          onClick={() => setChangeDisplay("flex")}
+          onClick={() => setIsOpen(true)}
         />
 
-        {/* <Switch color="green" isChecked={isDark} onChange={toggleColorMode} /> */}
+        
       </Flex>
       <Flex
         color="#FFC12C"
@@ -68,7 +64,7 @@ useless switchmode, just testing*/
         left="0"
         overflow="auto"
         flexDirection="column"
-        display={changeDisplay}
+        display={isOpen ? 'flex' : 'none'}
       >
         <Flex justify="flex-start">
           <IconButton
@@ -78,7 +74,7 @@ useless switchmode, just testing*/
             aria-label="Close Menu"
             size="lg"
             icon={<CloseIcon />}
-            onClick={() => setChangeDisplay("none")}
+            onClick={() => setIsOpen(false)}
           />
         </Flex>
         <Flex flexDirection="column" align="center">
