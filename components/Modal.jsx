@@ -17,9 +17,9 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
   
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal  isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bgColor="#5DC8A8" color="white">
           <ModalHeader>{toDOH.name}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -30,7 +30,7 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
 
           <ModalFooter>
             <Button variant="ghost">Erledicht</Button>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="teal" mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>
