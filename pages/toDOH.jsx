@@ -83,7 +83,9 @@ function YourRandomToDOH({ inside, id }) {
         onClose={() => {setModalIsOpen(false)}} 
       />
 
-      <IconButton onClick={onClickInside} title="get a random inside toDOH" />
+      <IconButton 
+      
+      onClick={onClickInside} title="get a random inside toDOH" />
 
       <IconButton onClick={onClickOutside} title="get a random outside toDOH" />
     </>
