@@ -1,3 +1,4 @@
+
 import Head from "next/head";
 import Image from "next/image";
 import styled from "styled-components";
@@ -19,8 +20,8 @@ function IndexPage() {
         <Image
           src="/images/starLOGO.png"
           alt="logo"
-          width={400}
-          height={500}
+          width={300}
+          height={400}
           layout="responsive"
         />
         <Link href="/Home">
