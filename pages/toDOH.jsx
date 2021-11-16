@@ -52,6 +52,7 @@ const toDOHs = [
 function YourRandomToDOH({ inside, id }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isInsideToDOH, setIsInsideToDOH] = useState();
+  const [currentToDOH, setCurrentToDOH] = useState();
 
   const getRandomToDOH = (items) => {
     const randomItemNr = Math.floor(Math.random() * items.length);
