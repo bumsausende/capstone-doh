@@ -42,11 +42,11 @@ function YourRandomToDOH({ inside, id }) {
     return items[randomItemNr];
   };
 
-  const insideToDOHs = (toDOHs) => {
+  const insideToDOHs = () => {
     return toDOHs.filter((toDOH) => toDOH.inside);
   };
 
-  const outsideToDOHs = (toDOHs) => {
+  const outsideToDOHs = () => {
     return toDOHs.filter((toDOH) => !toDOH.inside);
   };
 
