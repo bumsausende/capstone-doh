@@ -74,37 +74,43 @@ function YourRandomToDOH({ isInside, id }) {
     const filteredToDOHs = isInsideToDOH
       ? insideToDOHs(toDOHs)
       : outsideToDOHs(toDOHs);
-    const oneToDOH = getRandomToDOH(filteredToDOHs);
-    return oneToDOH;
+    return getRandomToDOH(filteredToDOHs);
   };
-
+//console.log and t just für testing current State (not working)
+// random function does not filter with current state/ same in outside
   const onClickInside = () => {
     setIsInsideToDOH(true);
-    setCurrentToDOH(getOneRandomToDOH());
+    const t = getOneRandomToDOH();
+    console.log("insideclick: " + t);
+    setCurrentToDOH(t);
     setModalIsOpen(true);
+    
   };
-
+//console.log and t just für testing current State (not working)
   const onClickOutside = () => {
     setIsInsideToDOH(false);
-    setCurrentToDOH(getOneRandomToDOH());
+    const t = getOneRandomToDOH();
+    console.log("outside click" + t);
+    setCurrentToDOH(t);
+
     setModalIsOpen(true);
   };
-//TODO: reset currentTODOH on modal close or done?
-
+  //TODO: reset currentTODOH on modal close or done?
+// ATT ToDOHModal doesnt work with toDOH={currentToDOh}. WHY?
   return (
     <>
       <Header />
       <Body>
         <Flex flex-direction="row" justifyItems="center" bgColor="#5DC8A8">
-          {modalIsOpen && 
+          {modalIsOpen && (
             <ToDOHModal
-              toDOH={currentToDOH}
+              toDOH={getOneRandomToDOH()}
               isOpen={modalIsOpen}
               onClose={() => {
                 setModalIsOpen(false);
               }}
             />
-          } 
+          )}
           <div>
             <IconButton
               icon={<CheckIcon />}
