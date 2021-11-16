@@ -84,6 +84,7 @@ function YourRandomToDOH({ isInside, id }) {
     console.log("insideclick: " + t);
     setCurrentToDOH(t);
     setModalIsOpen(true);
+    
   };
 //console.log and t just für testing current State (not working)
   const onClickOutside = () => {
