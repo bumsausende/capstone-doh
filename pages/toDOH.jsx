@@ -53,6 +53,7 @@ const toDOHs = [
 function YourRandomToDOH({ isInside, id }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isInsideToDOH, setIsInsideToDOH] = useState();
+  const [currentToDOH, setCurrentToDOH] = useState(null);
 
   const getRandomToDOH = (items) => {
     const randomItemNr = Math.floor(Math.random() * items.length);
@@ -79,31 +80,31 @@ function YourRandomToDOH({ isInside, id }) {
 
   const onClickInside = () => {
     setIsInsideToDOH(true);
+    setCurrentToDOH(getOneRandomToDOH());
     setModalIsOpen(true);
   };
 
   const onClickOutside = () => {
     setIsInsideToDOH(false);
+    setCurrentToDOH(getOneRandomToDOH());
     setModalIsOpen(true);
   };
-//TODO: add currentToDOH state! 
-/* future function in modal prop:
-const getTHEtoDOH=()=>{
-  if(currentToDOH != null ) return currentToDOH;
-  return getOneRandomToDOH();
-} */
+//TODO: reset currentTODOH on modal close or done?
+
   return (
     <>
       <Header />
       <Body>
         <Flex flex-direction="row" justifyItems="center" bgColor="#5DC8A8">
-          <ToDOHModal
-            toDOH={getOneRandomToDOH()}
-            isOpen={modalIsOpen}
-            onClose={() => {
-              setModalIsOpen(false);
-            }}
-          />
+          {modalIsOpen && 
+            <ToDOHModal
+              toDOH={currentToDOH}
+              isOpen={modalIsOpen}
+              onClose={() => {
+                setModalIsOpen(false);
+              }}
+            />
+          } 
           <div>
             <IconButton
               icon={<CheckIcon />}

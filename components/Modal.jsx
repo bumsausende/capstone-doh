@@ -17,7 +17,7 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
   
   return (
   
-      <Modal  isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent bgColor="#5DC8A8" color="white" boxSize={500} border="5px solid white">
           <ModalHeader>{toDOH.name}</ModalHeader>
