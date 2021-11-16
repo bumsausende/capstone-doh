@@ -52,24 +52,26 @@ const toDOHs = [
 function YourRandomToDOH({ inside, id }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isInsideToDOH, setIsInsideToDOH] = useState();
-  const [currentToDOH, setCurrentToDOH] = useState();
 
   const getRandomToDOH = (items) => {
     const randomItemNr = Math.floor(Math.random() * items.length);
     return items[randomItemNr];
   };
 
-  const insideToDOHs = () => {
+  const insideToDOHs = (toDOHs) => {
     return toDOHs.filter((toDOH) => toDOH.inside);
   };
 
-  const outsideToDOHs = () => {
+  const outsideToDOHs = (toDOHs) => {
     return toDOHs.filter((toDOH) => !toDOH.inside);
   };
 
   const getOneRandomToDOH = () => {
-    const filteredToDOHs = isInsideToDOH ? insideToDOHs : outsideToDOHs;
-    return getRandomToDOH(filteredToDOHs);
+    const filteredToDOHs = isInsideToDOH
+      ? insideToDOHs(toDOHs)
+      : outsideToDOHs(toDOHs);
+    const oneToDOH = getRandomToDOH(filteredToDOHs);
+    return oneToDOH;
   };
 
   const onClickInside = () => {

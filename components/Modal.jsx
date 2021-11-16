@@ -16,7 +16,7 @@ import { useState } from "react";
 function ToDOHModal({ isOpen, onClose, toDOH }) {
   
   return (
-    <>
+  
       <Modal  isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent bgColor="#5DC8A8" color="white" boxSize={500} border="5px solid white">
@@ -37,7 +37,7 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
+  
   );
 }
 export default ToDOHModal;
