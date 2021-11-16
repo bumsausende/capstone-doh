@@ -58,18 +58,16 @@ function YourRandomToDOH({ inside, id }) {
     return items[randomItemNr];
   };
 
-  const insideToDOHs = (toDOHs) => {
+  const insideToDOHs = () => {
     return toDOHs.filter((toDOH) => toDOH.inside);
   };
 
-  const outsideToDOHs = (toDOHs) => {
+  const outsideToDOHs = () => {
     return toDOHs.filter((toDOH) => !toDOH.inside);
   };
 
   const getOneRandomToDOH = () => {
-    const filteredToDOHs = isInsideToDOH
-      ? insideToDOHs(toDOHs)
-      : outsideToDOHs(toDOHs);
+    const filteredToDOHs = isInsideToDOH ? insideToDOHs : outsideToDOHs;
     const oneToDOH = getRandomToDOH(filteredToDOHs);
     return oneToDOH;
   };
