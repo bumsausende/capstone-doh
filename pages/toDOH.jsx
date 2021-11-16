@@ -6,12 +6,11 @@ import { Flex } from "@chakra-ui/layout";
 import { SunIcon, CheckIcon } from "@chakra-ui/icons";
 import styled from "styled-components";
 
-
 const toDOHs = [
   {
     id: 1,
     name: "Male das Pony",
-    inside: true,
+    isInside: true,
     description1:
       "Hol dir ein Blatt Papier und einen Stift und male ein Pony, das eine Möhre Kaut und einen Hut auf hat",
     description2: "Setze deinen Handy-Timer auf 15 Minuten",
@@ -19,7 +18,7 @@ const toDOHs = [
   {
     id: 2,
     name: "Putze dein Küchenfenster",
-    inside: true,
+    isInside: true,
     description1:
       "Schnapp dir einen Lappen, Glasspiritus und einen Abzieher und gönn dir den Putz",
     description2: "Setze deinen Handy-Timer auf 15 Minuten",
@@ -27,7 +26,7 @@ const toDOHs = [
   {
     id: 3,
     name: "Hüpf nach draußen und bringe drei kleine Blumen wieder mit",
-    inside: false,
+    isInside: false,
     description1:
       "Pack eine Gartenschere ein und suche draußen 3 hübsche Zweige oder Blümchen",
     description2:
@@ -36,20 +35,22 @@ const toDOHs = [
   {
     id: 4,
     name: "Klingelstreich",
-    inside: false,
+    isInside: false,
     description1:
       "Klingele bei einem Nachbarn deiner Wahl und frag ihn, wie es so geht",
     description2: "Smalltalk incoming",
-  },{
+  },
+  {
     id: 5,
     name: "OriGamiHASE",
-    inside: true,
-    description1:"https://www.youtube.com/watch?v=JgsjWspFy-o",
-    description2: "schnapp dir ein Blatt Papier und bastele diesen wunderschönen Hasen mit YouTube.",
+    isInside: true,
+    description1: "https://www.youtube.com/watch?v=JgsjWspFy-o",
+    description2:
+      "schnapp dir ein Blatt Papier und bastele diesen wunderschönen Hasen mit YouTube.",
   },
 ];
 
-function YourRandomToDOH({ inside, id }) {
+function YourRandomToDOH({ isInside, id }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isInsideToDOH, setIsInsideToDOH] = useState();
 
@@ -58,12 +59,14 @@ function YourRandomToDOH({ inside, id }) {
     return items[randomItemNr];
   };
 
-  const insideToDOHs = (toDOHs) => {
-    return toDOHs.filter((toDOH) => toDOH.inside);
+  //const insideToDOHs = toDOHs.filter(({isInside})=> isInside);
+  const insideToDOHs = () => {
+    return toDOHs.filter(({ isInside }) => isInside);
   };
 
-  const outsideToDOHs = (toDOHs) => {
-    return toDOHs.filter((toDOH) => !toDOH.inside);
+  //const outsideToDOHs = toDOHs.filter(({isInside}) =>!isInside);
+  const outsideToDOHs = () => {
+    return toDOHs.filter(({ isInside }) => !isInside);
   };
 
   const getOneRandomToDOH = () => {
@@ -76,27 +79,26 @@ function YourRandomToDOH({ inside, id }) {
 
   const onClickInside = () => {
     setIsInsideToDOH(true);
-    getOneRandomToDOH();
     setModalIsOpen(true);
   };
 
   const onClickOutside = () => {
     setIsInsideToDOH(false);
-    getOneRandomToDOH();
     setModalIsOpen(true);
   };
-
+//TODO: add currentToDOH state! 
+/* future function in modal prop:
+const getTHEtoDOH=()=>{
+  if(currentToDOH != null ) return currentToDOH;
+  return getOneRandomToDOH();
+} */
   return (
     <>
       <Header />
       <Body>
-        <Flex
-          flex-direction="row"
-          justifyItems="center"
-          bgColor="#5DC8A8"
-        >
+        <Flex flex-direction="row" justifyItems="center" bgColor="#5DC8A8">
           <ToDOHModal
-            toDOH={getOneRandomToDOH(true)}
+            toDOH={getOneRandomToDOH()}
             isOpen={modalIsOpen}
             onClose={() => {
               setModalIsOpen(false);
@@ -146,7 +148,6 @@ const Body = styled.section`
   div {
     display: flex;
     justify-content: center;
-    
   }
 `;
 export default YourRandomToDOH;
