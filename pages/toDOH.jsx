@@ -68,8 +68,7 @@ function YourRandomToDOH({ inside, id }) {
 
   const getOneRandomToDOH = () => {
     const filteredToDOHs = isInsideToDOH ? insideToDOHs : outsideToDOHs;
-    const oneToDOH = getRandomToDOH(filteredToDOHs);
-    return oneToDOH;
+    return getRandomToDOH(filteredToDOHs);
   };
 
   const onClickInside = () => {
