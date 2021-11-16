@@ -9,14 +9,10 @@ import { BurgerMenu } from "./BurgerMenuAndSwitch";
 const Header =()=>{
 return (
     <StyledHeader>
-        <div className="Bar">
-          <BurgerMenu/>
-            
-        </div>
+        <BurgerMenu/>  
     </StyledHeader>
 )
-
-}
+};
 
 export default Header;
 
@@ -24,7 +20,7 @@ export default Header;
 
 const StyledHeader = styled.section `
 
-  /*position: fixed;
+  /*position: sticky;
   color: #ffc12c;
   font-family: "Lekton";
   font-size: 10vw;

@@ -19,10 +19,11 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
     <>
       <Modal  isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent bgColor="#5DC8A8" color="white">
+        <ModalContent bgColor="#5DC8A8" color="white" boxSize={500} border="5px solid white">
           <ModalHeader>{toDOH.name}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody
+          >
             <p>{toDOH.description1}</p>
             <p>{toDOH.description2}</p>
             
