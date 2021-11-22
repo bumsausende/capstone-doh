@@ -1,5 +1,4 @@
-/////get all TODOHS
-import { client } from "../../../utils/database";
+import { client } from "../../../utils/Database";
 
 export default async function handler(request, response) {
   try {
@@ -14,13 +13,19 @@ export default async function handler(request, response) {
         break;
 
       case "POST":
-        // const newGift = JSON.parse(request.body)
-
         const insertResult = await collection.insertOne(request.body);
 
         response.status(200).json(insertResult);
         break;
 
+      case "PUT":
+        const updatedToDOH = SanitizeToDOH(request.body);
+        const updateResult = await collection.updateOne(
+          { _id },
+          { $set: updatedToDOH }
+        );
+        response.status(200).json(updateResult);
+        break;
       default:
         response.status(405).json({ error: "Method not allowed" });
         break;
