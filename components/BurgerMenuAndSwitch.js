@@ -1,4 +1,4 @@
-import { Flex, Button, IconButton } from "@chakra-ui/react";
+import { Flex, Button, IconButton, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
@@ -7,7 +7,8 @@ export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Flex>
+      <Flex
+      justify="flex-end">
         <Flex
           position="fixed"
           top="1rem"
@@ -39,9 +40,10 @@ export const BurgerMenu = () => {
           </Flex>
         </Flex>
         <IconButton
+        
           color="#FFC12C"
           bgColor="#499890"
-          position="sticky"
+          position="fixed"
           aria-label="Open Menu"
           size="lg"
           boxSize={100}
@@ -56,7 +58,7 @@ export const BurgerMenu = () => {
         width="100vw"
         bgColor="#499890"
         zIndex={20}
-        height="50vh"
+        height="100vh"
         position="fixed"
         top="0"
         left="0"
@@ -64,11 +66,11 @@ export const BurgerMenu = () => {
         flexDirection="column"
         display={isOpen ? "flex" : "none"}
       >
-        <Flex justify="flex-start">
+        <Flex justify="flex-end">
           <IconButton
             bgColor="#499890"
             marginTop={2}
-            marginRight={2}
+            
             aria-label="Close Menu"
             size="lg"
             icon={<CloseIcon />}
