@@ -1,57 +1,11 @@
 import { useState } from "react";
-import Header from "../components/Header";
 import ToDOHModal from "../components/Modal";
-import { IconButton, Button } from "@chakra-ui/button";
+import { Button } from "@chakra-ui/button";
 import { Flex, Grid,  Heading } from "@chakra-ui/layout";
-import { SunIcon, CheckIcon } from "@chakra-ui/icons";
 import styled from "styled-components";
-import Image from "next/image";
+import { get } from "../lib/api/apiClient";
 
-const toDOHs = [
-  {
-    id: 1,
-    name: "Male das Pony",
-    isInside: true,
-    description1:
-      "Hol dir ein Blatt Papier und einen Stift und male ein Pony, das eine Möhre Kaut und einen Hut auf hat",
-    description2: "Setze deinen Handy-Timer auf 15 Minuten",
-  },
-  {
-    id: 2,
-    name: "Putze dein Küchenfenster",
-    isInside: true,
-    description1:
-      "Schnapp dir einen Lappen, Glasspiritus und einen Abzieher und gönn dir den Putz",
-    description2: "Setze deinen Handy-Timer auf 15 Minuten",
-  },
-  {
-    id: 3,
-    name: "Hüpf nach draußen und bringe drei kleine Blumen wieder mit",
-    isInside: false,
-    description1:
-      "Pack eine Gartenschere ein und suche draußen 3 hübsche Zweige oder Blümchen",
-    description2:
-      "Setze deinen Handy-Timer auf 15 Minuten und pack die armen Blumen in die Vase!",
-  },
-  {
-    id: 4,
-    name: "Klingelstreich",
-    isInside: false,
-    description1:
-      "Klingele bei einem Nachbarn deiner Wahl und frag ihn, wie es so geht",
-    description2: "Smalltalk incoming",
-  },
-  {
-    id: 5,
-    name: "OriGamiHASE",
-    isInside: true,
-    description1: "https://www.youtube.com/watch?v=JgsjWspFy-o",
-    description2:
-      "schnapp dir ein Blatt Papier und bastele diesen wunderschönen Hasen mit YouTube.",
-  },
-];
-
-function YourRandomToDOH({ isInside, id }) {
+function YourRandomToDOH({ toDOHs }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const [currentToDOH, setCurrentToDOH] = useState(null);
@@ -92,10 +46,9 @@ function YourRandomToDOH({ isInside, id }) {
 
   return (
     <>
-      <Header />
       <Body>
         <Heading color="#FFC12C"> choose your DOH</Heading>
-        <Grid bgColor="#5DC8A8" >
+        <Grid>
           {modalIsOpen && (
             <ToDOHModal
               toDOH={currentToDOH}
@@ -138,12 +91,10 @@ function YourRandomToDOH({ isInside, id }) {
   );
 }
 const Body = styled.section`
-
   width: 100%;
   height: 100%;
   margin: 3rem;
   
-  background-color: #5dc8a8;
   color: white;
 `;
 export default YourRandomToDOH;
