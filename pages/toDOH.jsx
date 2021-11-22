@@ -97,4 +97,13 @@ const Body = styled.section`
   
   color: white;
 `;
+
+export async function getServerSideProps(context) {
+  const toDOHs = await get('toDOH');
+
+  return {
+    props: { toDOHs },
+  };
+}
+
 export default YourRandomToDOH;
