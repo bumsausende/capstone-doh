@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
 
 body {
 
-background-image: url('./images/backgroundBasic.svg');
+background-image: url('./images/starShadow.svg');
 background-repeat: no-repeat;
 background-size: cover;
 background-color: #5DC8A8;

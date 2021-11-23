@@ -7,8 +7,7 @@ export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Flex
-      justify="flex-end">
+      <Flex justify="flex-end">
         <Flex
           position="fixed"
           top="1rem"
@@ -40,7 +39,6 @@ export const BurgerMenu = () => {
           </Flex>
         </Flex>
         <IconButton
-        
           color="#FFC12C"
           bgColor="#499890"
           position="fixed"
@@ -70,7 +68,6 @@ export const BurgerMenu = () => {
           <IconButton
             bgColor="#499890"
             marginTop={2}
-            
             aria-label="Close Menu"
             size="lg"
             icon={<CloseIcon />}
