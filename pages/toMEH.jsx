@@ -1,99 +1,117 @@
-import {
-  FormControl,
-  Label,
-  Input,
-  Form,
-  Flex,
-  Button,
-  IconButton,
-} from "@chakra-ui/react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { Checkbox, Flex, Button, Input, Heading } from "@chakra-ui/react";
 import styled from "styled-components";
-import Header from "../components/Header";
+import { post } from "../lib/api/apiClient";
 
-function ToMEH() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+const AddToMEH = () => {
+  const [value, setValue] = useState({
+    name: "",
+    content: "",
+    description: "",
+    isInside: true,
+    isDone: false,
+  });
+
+  const handleValueChange = (event) => {
+    const _value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value;
+    // UseState setter-function uses previuos value(s) as parameter to *fuck*useState-setter-function-paramter-function-paremter (SIC!)
+    setValue(previousValue => ({
+      ...previousValue,
+      [event.target.name]: _value
+    }))
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const answer = await post('toDOH', value);
+  };
+
   return (
     <>
-      <Header />
-      <Body>
-      <div className="FormContainer">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label htmlFor="toDOH">ToDOH</label>
-            <input placeholder="what" {...register("toDOH")} />
-          </div>
-
-          <div>
-            <label htmlFor="description"> YOUR IDEA</label>
-            <input placeholder="how" {...register("description")} />
-          </div>
-          <div>
-            <label htmlFor="time">ANY CONDITIONS?</label>
-            <input
-              placeholder="set your mobile timer"
-          
-              {...register("time")}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="inside">IS IT INSIDE?</label>
-            <input
-              type="checkbox"
-             
-              value="yes"
-              {...register("inside")}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="done">IS IT DONE?</label>
-            <input
-              type="checkbox"
-              
-              value="yes"
-              {...register("done")}
-            />
-          </div>
-
-          <input type="submit" />
+      <Heading color="#FFC12C" m="2rem">
+        WHAT DOH toMEH
+      </Heading>
+      <Flex m="auto" padding="30" justify="center">
+        <form onSubmit={handleSubmit} autoComplete="off">
+          <Flex m="2rem">
+            <Label>Name toDOH!</Label>
+            <Input
+              name='name'
+              required
+              onChange={handleValueChange}
+              focusBorderColor="#FFC12C"
+              size="lg"
+              value={value.name}
+            ></Input>
+          </Flex>
+          <Flex m="2rem">
+            <Label>What toDOH?</Label>
+            <Input
+              name='content'
+              required
+              onChange={handleValueChange}
+              focusBorderColor="#FFC12C"
+              size="lg"
+              value={value.content}
+            ></Input>
+          </Flex>
+          <Flex m="2rem">
+            <Label>HoW toDOH?</Label>
+            <Input
+              name='description'
+              required
+              onChange={handleValueChange}
+              focusBorderColor="#FFC12C"
+              size="lg"
+              value={value.description}
+            ></Input>
+          </Flex>
+          <Flex m="2rem" p="2rem">
+            <Label></Label>
+            <Checkbox
+              name='isInside'
+              size="lg"
+              colorScheme="teal"
+              isChecked={value.isInside}
+              onChange={handleValueChange}
+            >
+              {" "}
+              wanna DOH it inside?{" "}
+            </Checkbox>
+            <Checkbox
+              name='isDone'
+              colorScheme="teal" 
+              isChecked={value.isDone}
+              onChange={handleValueChange}
+              size="lg" 
+            >
+              {" "}
+              already DOHne it?{" "}
+            </Checkbox>
+          </Flex>
+          <Flex>
+            <Button
+              m="1em"
+              padding="3em"
+              fontSize="1em"
+              bgColor="#FFC12C"
+              focusBorderColor="#FFC12C"
+              type="submit"
+              value="Submit"
+            >
+              {" "}
+              give DOH in
+            </Button>
+          </Flex>
         </form>
-      </div>
-      </Body>
+      </Flex>
     </>
   );
 }
-const Body = styled.section `
-  background-color: #5DC8A8;
-  margin-top: 100px; 
-  padding: 0;
-  font-size: 24pt;
-  
-  
-
-
-input {
-    color: #FFC12C;
-background-color: white;
-    margin: 1.6rem;
-    
-  }
-div {
-  
-  border: 4px solid white;
-  padding:40px;
-  margin: 10px;
-  border-radius: 17px;
-  box-shadow: 5px 5px 10px 5px #FFC12C;
-}
-label {
+const Form = styled.section`
   color: white;
-}
-
+  font-size: 2em;
 `;
-export default ToMEH;
+const Label = styled.section``;
+
+export default AddToMEH;

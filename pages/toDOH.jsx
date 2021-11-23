@@ -1,58 +1,13 @@
 import { useState } from "react";
-import Header from "../components/Header";
 import ToDOHModal from "../components/Modal";
-import { IconButton } from "@chakra-ui/button";
-import { Flex } from "@chakra-ui/layout";
-import { SunIcon, CheckIcon } from "@chakra-ui/icons";
+import { Button } from "@chakra-ui/button";
+import { Flex, Grid,  Heading } from "@chakra-ui/layout";
 import styled from "styled-components";
+import { get } from "../lib/api/apiClient";
 
-const toDOHs = [
-  {
-    id: 1,
-    name: "Male das Pony",
-    isInside: true,
-    description1:
-      "Hol dir ein Blatt Papier und einen Stift und male ein Pony, das eine Möhre Kaut und einen Hut auf hat",
-    description2: "Setze deinen Handy-Timer auf 15 Minuten",
-  },
-  {
-    id: 2,
-    name: "Putze dein Küchenfenster",
-    isInside: true,
-    description1:
-      "Schnapp dir einen Lappen, Glasspiritus und einen Abzieher und gönn dir den Putz",
-    description2: "Setze deinen Handy-Timer auf 15 Minuten",
-  },
-  {
-    id: 3,
-    name: "Hüpf nach draußen und bringe drei kleine Blumen wieder mit",
-    isInside: false,
-    description1:
-      "Pack eine Gartenschere ein und suche draußen 3 hübsche Zweige oder Blümchen",
-    description2:
-      "Setze deinen Handy-Timer auf 15 Minuten und pack die armen Blumen in die Vase!",
-  },
-  {
-    id: 4,
-    name: "Klingelstreich",
-    isInside: false,
-    description1:
-      "Klingele bei einem Nachbarn deiner Wahl und frag ihn, wie es so geht",
-    description2: "Smalltalk incoming",
-  },
-  {
-    id: 5,
-    name: "OriGamiHASE",
-    isInside: true,
-    description1: "https://www.youtube.com/watch?v=JgsjWspFy-o",
-    description2:
-      "schnapp dir ein Blatt Papier und bastele diesen wunderschönen Hasen mit YouTube.",
-  },
-];
-
-function YourRandomToDOH({ isInside, id }) {
+function YourRandomToDOH({ toDOHs }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [isInsideToDOH, setIsInsideToDOH] = useState();
+
   const [currentToDOH, setCurrentToDOH] = useState(null);
 
   const getRandomToDOH = (items) => {
@@ -70,91 +25,85 @@ function YourRandomToDOH({ isInside, id }) {
     return toDOHs.filter(({ isInside }) => !isInside);
   };
 
-  const getOneRandomToDOH = () => {
+  const getOneRandomToDOH = (isInsideToDOH) => {
     const filteredToDOHs = isInsideToDOH
       ? insideToDOHs(toDOHs)
       : outsideToDOHs(toDOHs);
     return getRandomToDOH(filteredToDOHs);
   };
-//console.log and t just für testing current State (not working)
-// random function does not filter with current state/ same in outside
-  const onClickInside = () => {
-    setIsInsideToDOH(true);
-    const t = getOneRandomToDOH();
-    console.log("insideclick: " + t);
-    setCurrentToDOH(t);
-    setModalIsOpen(true);
-    
-  };
-//console.log and t just für testing current State (not working)
-  const onClickOutside = () => {
-    setIsInsideToDOH(false);
-    const t = getOneRandomToDOH();
-    console.log("outside click" + t);
-    setCurrentToDOH(t);
 
+  const onClickInside = () => {
+    const t = getOneRandomToDOH(true);
+    setCurrentToDOH(t);
     setModalIsOpen(true);
   };
-  //TODO: reset currentTODOH on modal close or done?
-// ATT ToDOHModal doesnt work with toDOH={currentToDOh}. WHY?
+
+  const onClickOutside = () => {
+    const t = getOneRandomToDOH(false);
+    setCurrentToDOH(t);
+    setModalIsOpen(true);
+  };
+
   return (
     <>
-      <Header />
       <Body>
-        <Flex flex-direction="row" justifyItems="center" bgColor="#5DC8A8">
+        <Heading color="#FFC12C"> choose your DOH</Heading>
+        <Grid>
           {modalIsOpen && (
             <ToDOHModal
-              toDOH={getOneRandomToDOH()}
+              toDOH={currentToDOH}
               isOpen={modalIsOpen}
               onClose={() => {
                 setModalIsOpen(false);
               }}
             />
           )}
-          <div>
-            <IconButton
-              icon={<CheckIcon />}
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              boxSize={150}
-              bgColor="#499890"
+          <Flex m="2rem" justify="flex-start">
+            <Button
+              bgImage="/images/buttoninside.svg"
+              width={187}
+              height={160}
               color="#FFC12C"
-              size="lg"
+              bgColor="#5DC8A8"
+              variant="unstyled"
               onClick={onClickInside}
               title="get a random inside toDOH"
-            />
-          </div>
-          <div>
-            <IconButton
-              icon={<SunIcon />}
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              bgColor="#499890"
+            >
+              {" "}
+            </Button> <Flex m="2rem">sit down, take a breath</Flex>
+          </Flex>
+          <Flex m="1rem" justify="flex-start"
+          > <Flex m="0.5rem" justify="center">put on jacket and don&apos;t forget sandals</Flex>
+            <Button
+              bgImage="./images/buttonoutside.svg"
+              bgColor="#5DC8A8"
               color="#FFC12C"
-              size="lg"
-              boxSize={150}
+              variant="unstyled"
+              width={187}
+              height={160}
               onClick={onClickOutside}
               title="get a random outside toDOH"
             />
-          </div>
-        </Flex>
+          </Flex>
+        </Grid>
       </Body>
     </>
   );
 }
 const Body = styled.section`
-  display: flex;
   width: 100%;
   height: 100%;
-  padding: 20rem;
-  background-color: #5dc8a8;
-  font-family: "Lekton";
+  margin: 3rem;
+  
   color: white;
-  div {
-    display: flex;
-    justify-content: center;
-  }
 `;
+
+export async function getServerSideProps(context) {
+  const toDOHs = await get('toDOH');
+
+  return {
+    props: { toDOHs },
+  };
+}
+
 export default YourRandomToDOH;
