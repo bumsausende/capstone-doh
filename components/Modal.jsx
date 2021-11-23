@@ -15,8 +15,6 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
   const changeDoneState = async () => {
     toDOH.isDone = true;
     const result = await put('toDOH', toDOH);
-    console.log(result);
-    
   }
 
   return (
