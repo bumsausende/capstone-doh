@@ -26,8 +26,13 @@ const AddToMEH = () => {
   
     event.preventDefault();
     const answer = await post('toDOH', sanitizeToDOH(value));
-    
-  
+    setValue({
+    name: "",
+    content: "",
+    description: "",
+    isInside: true,
+    isDone: false,
+  });
   };
 
   

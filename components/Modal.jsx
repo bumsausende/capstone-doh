@@ -34,11 +34,10 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
           <p>{toDOH.content}</p>
           <p>{toDOH.description}</p>
         </ModalBody>
-
         <ModalFooter>
-          <Button variant="ghost" onClick={changeDoneState}>DOHne</Button>
+          <Button variant="ghost" onClick={changeDoneState}>DONE YES</Button>
           <Button colorScheme="teal" mr={3} onClick={onClose}>
-            Close
+            nah!
           </Button>
         </ModalFooter>
       </ModalContent>
