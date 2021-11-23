@@ -23,10 +23,11 @@ const AddToMEH = () => {
   };
 
   const handleSubmit = async (event) => {
-    alert("now you have toDOH")
+  
     event.preventDefault();
-    const answer = await post('toDOH', sanitizeToDOH(value))
-    ;
+    const answer = await post('toDOH', sanitizeToDOH(value));
+    
+  
   };
 
   
@@ -95,7 +96,6 @@ const AddToMEH = () => {
             </Checkbox>
           </Flex>
           <Flex>
-            
             <Button
               m="1em"
               padding="3em"

@@ -9,7 +9,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import React from "react";
-import { useState } from "react";
 import { put } from "../lib/api/apiClient";
 
 function ToDOHModal({ isOpen, onClose, toDOH }) {
@@ -19,7 +18,6 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
     console.log(result);
     
   }
-  
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
