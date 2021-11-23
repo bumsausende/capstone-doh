@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Checkbox, Flex, Button, Input, Heading } from "@chakra-ui/react";
 import styled from "styled-components";
 import { post } from "../lib/api/apiClient";
+import { sanitizeToDOH } from "../utils/SanitizeToDOH";
 
 const AddToMEH = () => {
   const [value, setValue] = useState({
@@ -23,7 +24,7 @@ const AddToMEH = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const answer = await post('toDOH', value);
+    const answer = await post('toDOH', sanitizeToDOH(value));
   };
 
   return (

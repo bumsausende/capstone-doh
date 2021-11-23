@@ -24,8 +24,8 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
         <ModalHeader>{toDOH.name}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <p>{toDOH.description1}</p>
-          <p>{toDOH.description2}</p>
+          <p>{toDOH.content}</p>
+          <p>{toDOH.description}</p>
         </ModalBody>
 
         <ModalFooter>
