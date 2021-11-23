@@ -1,4 +1,6 @@
 import { client } from "../../../utils/Database";
+import { ObjectId } from "mongodb";
+
 
 export default async function handler(request, response) {
   try {
@@ -19,11 +21,10 @@ export default async function handler(request, response) {
         break;
 
       case "PUT":
-        const updatedToDOH = request.body;
-        console.log(updatedToDOH);
+        const updateToDOH = request.body;
         const updateResult = await collection.updateOne(
-          { _id: parseInt(updatedToDOH._id) },
-          { $set: { updatedToDOH } }
+          { _id: ObjectId(updatedToDOH._id) },
+          { $set: {updateToDOH} }
         );
         response.status(200).json(updateResult);
         break;
