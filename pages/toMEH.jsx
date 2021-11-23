@@ -3,6 +3,7 @@ import { Checkbox, Flex, Button, Input, Heading } from "@chakra-ui/react";
 import styled from "styled-components";
 import { post } from "../lib/api/apiClient";
 import { sanitizeToDOH } from "../utils/SanitizeToDOH";
+import { useToast } from "@chakra-ui/react"
 
 const AddToMEH = () => {
   const [value, setValue] = useState({
@@ -12,6 +13,10 @@ const AddToMEH = () => {
     isInside: true,
     isDone: false,
   });
+  
+  const [isLoading, setIsLoading] = useState(false);
+
+  const toast = useToast();
 
   const handleValueChange = (event) => {
     const _value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value;
@@ -23,11 +28,29 @@ const AddToMEH = () => {
   };
 
   const handleSubmit = async (event) => {
-  
     event.preventDefault();
+    setIsLoading(true);
     const answer = await post('toDOH', sanitizeToDOH(value));
-    
-  
+    if (answer.acknowledged) {
+      toast({
+        title: "Yeah!",
+        description: "Now you have to DOH it!",
+        status: "warning",
+        duration: 4000,
+        isClosable: true,
+        position: "top",
+      });
+
+      // reset current toDOH and all input fields
+      setValue({
+        name: "",
+        content: "",
+        description: "",
+        isInside: true,
+        isDone: false,
+      });
+    }
+    setIsLoading(false);
   };
 
   
@@ -103,7 +126,9 @@ const AddToMEH = () => {
               bgColor="#FFC12C"
               focusBorderColor="#FFC12C"
               type="submit"
-              value="Submit"> 
+              value="Submit"
+              isLoading={isLoading}
+            > 
               give DOH in
             </Button>
           </Flex>
