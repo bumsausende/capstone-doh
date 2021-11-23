@@ -19,10 +19,11 @@ export default async function handler(request, response) {
         break;
 
       case "PUT":
-        const updatedToDOH = SanitizeToDOH(request.body);
+        const updatedToDOH = request.body;
+        console.log(updatedToDOH);
         const updateResult = await collection.updateOne(
-          { _id },
-          { $set: updatedToDOH }
+          { _id: parseInt(updatedToDOH._id) },
+          { $set: { updatedToDOH } }
         );
         response.status(200).json(updateResult);
         break;

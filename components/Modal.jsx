@@ -10,8 +10,17 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
+import { put } from "../lib/api/apiClient";
 
 function ToDOHModal({ isOpen, onClose, toDOH }) {
+  const changeDoneState = async () => {
+    toDOH.isDone = true;
+    const result = await put('toDOH', toDOH);
+    console.log(result);
+    
+  }
+  
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -29,7 +38,7 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
         </ModalBody>
 
         <ModalFooter>
-          <Button variant="ghost">Erledicht</Button>
+          <Button variant="ghost" onClick={changeDoneState}>DOHne</Button>
           <Button colorScheme="teal" mr={3} onClick={onClose}>
             Close
           </Button>
