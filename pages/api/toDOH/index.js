@@ -21,10 +21,10 @@ export default async function handler(request, response) {
         break;
 
       case "PUT":
-        const updateToDOH = request.body;
+        const { _id, ...data } = request.body;
         const updateResult = await collection.updateOne(
-          { _id: ObjectId(updateToDOH._id) },
-          { $set: {updateToDOH} }
+          { _id: ObjectId(_id) },
+          { $set: data }
         );
         response.status(200).json(updateResult);
         break;
