@@ -1,19 +1,24 @@
-import {
-    useColorMode,
-    Switch,
-    Flex,
-    Button,
-    IconButton,
-  } from "@chakra-ui/react";
-  import { useState } from "react";
-  import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-  import NextLink from "next/link";
+import { Flex } from "@chakra-ui/layout";
+import { get } from "../lib/api/apiClient"
+  
+function toLUV ({ toDOHs }) {
+
+return (
+<div>
+  {toDOHs.filter(toDOH => toDOH.isDone === true).map(doneToDOH => (
+    <li key={toDOHs}>
+      {doneToDOH.name}
+    </li>
+  ))}
+</div>
+)}
 
   
-  const toLUV = () => {
-      return (
-          <p>test</p>
-      )
-  }
+export async function getServerSideProps(context) {
+    const toDOHs = await get('toDOH');
   
+    return {
+      props: { toDOHs },
+    };
+  }
   export default toLUV;
