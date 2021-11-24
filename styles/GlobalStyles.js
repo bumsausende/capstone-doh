@@ -15,5 +15,24 @@ margin: 0;
 box-sizing: border-box;
 font-family: "Lekton";
 }
+
+.is-doing {
+  background-image:
+    url('/images/starLOGOwithoutShadow.svg'),
+    url('/images/starShadow.svg');
+    background-size: cover, cover;
+    background-repeat: no-repeat;
+    background-Position: top, top;
+}
+
+.is-done {
+  background-image:
+    url('/images/check.svg'),
+    url('/images/starLOGOwithoutShadow.svg'),
+    url('/images/starShadow.svg');
+    background-size: 70%, cover, cover;
+    background-repeat: no-repeat;
+    background-Position: 44% 33%, top, top;
+}
 `;
 
