@@ -23,7 +23,7 @@ export default async function handler(request, response) {
       case "PUT":
         const updateToDOH = request.body;
         const updateResult = await collection.updateOne(
-          { _id: ObjectId(updatedToDOH._id) },
+          { _id: ObjectId(updateToDOH._id) },
           { $set: {updateToDOH} }
         );
         response.status(200).json(updateResult);
@@ -33,6 +33,7 @@ export default async function handler(request, response) {
         break;
     }
   } catch (error) {
+    console.log(error);
     response.status(500).json({ error: "Something went wrong!" });
   } finally {
     // Ensures that the client will close when you finish/error
