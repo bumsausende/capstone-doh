@@ -5,15 +5,16 @@ export const GlobalStyles = createGlobalStyle`
 
 
 body {
-
-background-image: url('./images/starShadow.svg');
-background-repeat: no-repeat;
-background-size: cover;
-background-color: #5DC8A8;
-padding: 0;
-margin: 0;
-box-sizing: border-box;
-font-family: "Lekton";
+  background-image: url('./images/starShadow.svg');
+  background-repeat: no-repeat;
+  background-size: fill;
+  background-position: center 5rem;
+  background-color: #5DC8A8;
+  padding: 0;
+  color: white;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lekton";
 }
 
 .is-doing {

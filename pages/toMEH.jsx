@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Checkbox, Flex, Button, Input, Heading } from "@chakra-ui/react";
+import { Checkbox, Flex, Button, Input, HStack, VStack } from "@chakra-ui/react";
 import styled from "styled-components";
 import { post } from "../lib/api/apiClient";
 import { sanitizeToDOH } from "../utils/SanitizeToDOH";
 import { useToast } from "@chakra-ui/react"
+import Header from "../components/Header";
 
 const AddToMEH = () => {
   const [value, setValue] = useState({
@@ -36,7 +37,7 @@ const AddToMEH = () => {
         title: "Yeah!",
         description: "Now you have to DOH it!",
         status: "warning",
-        duration: 4000,
+        duration: 4000000,
         isClosable: true,
         position: "top",
       });
@@ -57,89 +58,85 @@ const AddToMEH = () => {
 
   return (
     <>
-      <Heading color="#FFC12C" m="2rem">
-        WHAT DOH toMEH
-      </Heading>
+      <Header title="WHAT DOH toMEH" />
       <Flex m="auto" padding="30" justify="center">
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <Flex m="2rem">
-            <Label>Name toDOH!</Label>
-            <Input
-              name='name'
-              required
-              onChange={handleValueChange}
-              focusBorderColor="#FFC12C"
-              size="lg"
-              value={value.name}
-            ></Input>
-          </Flex>
-          <Flex m="2rem">
-            <Label>What toDOH?</Label>
-            <Input
-              name='content'
-              required
-              onChange={handleValueChange}
-              focusBorderColor="#FFC12C"
-              size="lg"
-              value={value.content}
-            ></Input>
-          </Flex>
-          <Flex m="2rem">
-            <Label>HoW toDOH?</Label>
-            <Input
-              name='description'
-              required
-              onChange={handleValueChange}
-              focusBorderColor="#FFC12C"
-              size="lg"
-              value={value.description}
-            ></Input>
-          </Flex>
-          <Flex m="2rem" p="2rem">
-            <Label></Label>
-            <Checkbox
-              name='isInside'
-              size="lg"
-              colorScheme="teal"
-              isChecked={value.isInside}
-              onChange={handleValueChange}
-            >
-              {" "}
-              wanna DOH it inside?{" "}
-            </Checkbox>
-            <Checkbox
-              name='isDone'
-              colorScheme="teal" 
-              isChecked={value.isDone}
-              onChange={handleValueChange}
-              size="lg" 
-            >
-              {" "}
-              already DOHne it?{" "}
-            </Checkbox>
-          </Flex>
-          <Flex>
+        <Form onSubmit={handleSubmit} autoComplete="off">
+          <VStack spacing="1rem" align="end">
+            <HStack spacing="1rem">
+              <Label>Name toDOH!</Label>
+              <Input
+                name='name'
+                required
+                onChange={handleValueChange}
+                focusBorderColor="#FFC12C"
+                size="lg"
+                value={value.name}
+              ></Input>
+            </HStack>
+            <HStack spacing="1rem">
+              <Label>What toDOH?</Label>
+              <Input
+                name='content'
+                required
+                onChange={handleValueChange}
+                focusBorderColor="#FFC12C"
+                size="lg"
+                value={value.content}
+              ></Input>
+            </HStack>
+            <HStack spacing="1rem">
+              <Label>HoW toDOH?</Label>
+              <Input
+                name='description'
+                required
+                onChange={handleValueChange}
+                focusBorderColor="#FFC12C"
+                size="lg"
+                value={value.description}
+              ></Input>
+            </HStack>
+            <HStack >
+              <Checkbox
+                name='isInside'
+                size="lg"
+                colorScheme="teal"
+                isChecked={value.isInside}
+                onChange={handleValueChange}
+              >
+                wanna DOH it inside?
+              </Checkbox>
+            </HStack >
+            <HStack mb="2rem">
+              <Checkbox
+                name='isDone'
+                colorScheme="teal" 
+                isChecked={value.isDone}
+                onChange={handleValueChange}
+                size="lg" 
+              >
+                already DOHne it?
+              </Checkbox>
+            </HStack>
             <Button
-              m="1em"
-              padding="3em"
-              fontSize="1em"
-              bgColor="#FFC12C"
+              padding="2em 1em"
+              fontSize="1.5em"
+              fontWeight="bold"
               focusBorderColor="#FFC12C"
               type="submit"
               value="Submit"
+              background="linear-gradient(310deg, rgba(255, 184, 12, 0.53) 1.53%, #f09f1B 110%)"
               isLoading={isLoading}
             > 
               give DOH in
             </Button>
-          </Flex>
-        </form>
+          </VStack>
+        </Form>
       </Flex>
     </>
   );
 }
-const Form = styled.section`
-  color: white;
-  font-size: 2em;
+const Form = styled.form`
+  font-size: 1.2em;
 `;
 const Label = styled.section``;
 

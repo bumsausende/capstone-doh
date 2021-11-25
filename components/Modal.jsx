@@ -39,19 +39,28 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
         bgRepeat="no-repeat"
         bgPosition="top"
         color="white"
-        boxSize={500}
+        w={350}
+        h={550}
         border="5px solid white"
       >
         <ModalHeader>
           {toDOH.name}
           <ModalCloseButton />
         </ModalHeader>
-        <ModalBody>
+        <ModalBody fontSize={21}>
           <p>{toDOH.content}</p>
           <p>{toDOH.description}</p>
         </ModalBody>
         <ModalFooter>
-          <Button variant="ghost" onClick={changeDoneState} isLoading={isLoading}>DONE YES</Button>
+          <Button 
+            onClick={changeDoneState}
+            background="linear-gradient(310deg, rgba(255, 184, 12, 0.53) 1.53%, #f09f1B 110%)"
+            mr={5}
+            padding="1em 0.5em"
+            isLoading={isLoading}
+          >
+            DONE YES
+          </Button>
           <Button colorScheme="teal" mr={3} onClick={onClose}>
             nah!
           </Button>
@@ -61,7 +70,4 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
   );
 }
 
-const ModalClass = styled.section`
-  display: none;
-`;
 export default ToDOHModal;
