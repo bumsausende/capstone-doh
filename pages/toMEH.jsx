@@ -47,7 +47,7 @@ const AddToMEH = () => {
         title: "Yeah!",
         description: "Now you have to DOH it!",
         status: "warning",
-        duration: 4000000,
+        duration: 4000,
         isClosable: true,
         position: "top",
       });
