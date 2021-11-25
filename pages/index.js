@@ -3,9 +3,6 @@ import Image from "next/image";
 import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
-import Home from "./Home";
-import { GlobalStyles } from "../styles/GlobalStyles";
-import MyDocument from "./_document";
 
 function IndexPage() {
   return (
@@ -20,9 +17,7 @@ function IndexPage() {
             <Image
               src="/images/starLOGO.svg"
               alt="logo"
-              width={100}
-              height={200}
-              layout="responsive"
+              layout="fill"
             />
           </a>
         </Link>
@@ -35,5 +30,7 @@ export default IndexPage;
 const image = styled.section``;
 const IndexPageContainer = styled.section`
   background-color: #5dc8a8;
+  height: 100vh;
+  width: 100vw;
 `;
 const Button = styled.section``;

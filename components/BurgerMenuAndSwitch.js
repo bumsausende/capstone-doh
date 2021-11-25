@@ -9,7 +9,6 @@ export const BurgerMenu = () => {
     <>
       <Flex justify="flex-end">
         <Flex
-          position="fixed"
           top="1rem"
           right="1rem"
           align="center"
@@ -41,12 +40,11 @@ export const BurgerMenu = () => {
         <IconButton
           color="#FFC12C"
           bgColor="#499890"
-          position="fixed"
           aria-label="Open Menu"
           size="lg"
           boxSize={100}
-          mr={2}
-          icon={<HamburgerIcon />}
+          m={2}
+          icon={<HamburgerIcon w={20} h={20}/>}
           display={["flex", "flex", "none", "none"]}
           onClick={() => setIsOpen(true)}
         />
@@ -57,7 +55,7 @@ export const BurgerMenu = () => {
         bgColor="#499890"
         zIndex={20}
         height="100vh"
-        position="fixed"
+        position="absolute"
         top="0"
         left="0"
         overflow="auto"
@@ -76,22 +74,22 @@ export const BurgerMenu = () => {
         </Flex>
         <Flex flexDirection="column" align="center">
           <NextLink href="/Home" passHref>
-            <Button as="a" variant="ghost" aria-label="Home" my={5} w="100%">
+            <Button onClick={() => setIsOpen(false)} as="a" variant="ghost" aria-label="Home" my={5} w="100%">
               What is happen here?
             </Button>
           </NextLink>
           <NextLink href="/toDOH" passHref>
-            <Button as="a" variant="ghost" aria-label="toDOH" my={5} w="100%">
+            <Button onClick={() => setIsOpen(false)} as="a" variant="ghost" aria-label="toDOH" my={5} w="100%">
               toDOH
             </Button>
           </NextLink>
           <NextLink href="/toLUV" passHref>
-            <Button as="a" variant="ghost" aria-label="toLUV" my={5} w="100%">
+            <Button onClick={() => setIsOpen(false)} as="a" variant="ghost" aria-label="toLUV" my={5} w="100%">
               toLUV
             </Button>
           </NextLink>
           <NextLink href="/toMEH" passHref>
-            <Button as="a" variant="ghost" aria-label="toMEH" my={5} w="100%">
+            <Button onClick={() => setIsOpen(false)} as="a" variant="ghost" aria-label="toMEH" my={5} w="100%">
               toMEH
             </Button>
           </NextLink>
