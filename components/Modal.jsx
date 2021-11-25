@@ -9,7 +9,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { React, useState } from "react";
-import styled from "styled-components";
 import { put } from "../lib/api/apiClient";
 
 function ToDOHModal({ isOpen, onClose, toDOH }) {
@@ -20,13 +19,15 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
     setIsLoading(true);
     setAnimClass("is-doing");
     toDOH.isDone = true;
-    const result = await put('toDOH', toDOH);
+    const result = await put("toDOH", toDOH);
     setIsLoading(false);
     if (result.acknowledged) {
       setAnimClass("is-done");
-      setTimeout(() => { onClose(); }, 2000);
+      setTimeout(() => {
+        onClose();
+      }, 2000);
     }
-  }
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -52,7 +53,7 @@ function ToDOHModal({ isOpen, onClose, toDOH }) {
           <p>{toDOH.description}</p>
         </ModalBody>
         <ModalFooter>
-          <Button 
+          <Button
             onClick={changeDoneState}
             background="linear-gradient(310deg, rgba(255, 184, 12, 0.53) 1.53%, #f09f1B 110%)"
             mr={5}

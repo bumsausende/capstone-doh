@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { Checkbox, Flex, Button, Input, HStack, VStack } from "@chakra-ui/react";
+import {
+  Checkbox,
+  Flex,
+  Button,
+  Input,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 import styled from "styled-components";
 import { post } from "../lib/api/apiClient";
 import { sanitizeToDOH } from "../utils/SanitizeToDOH";
-import { useToast } from "@chakra-ui/react"
+import { useToast } from "@chakra-ui/react";
 import Header from "../components/Header";
 
 const AddToMEH = () => {
@@ -14,24 +21,27 @@ const AddToMEH = () => {
     isInside: true,
     isDone: false,
   });
-  
+
   const [isLoading, setIsLoading] = useState(false);
 
   const toast = useToast();
 
   const handleValueChange = (event) => {
-    const _value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value;
+    const _value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
     // UseState setter-function uses previuos value(s) as parameter to *fuck*useState-setter-function-paramter-function-paremter (SIC!)
-    setValue(previousValue => ({
+    setValue((previousValue) => ({
       ...previousValue,
-      [event.target.name]: _value
-    }))
+      [event.target.name]: _value,
+    }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    const answer = await post('toDOH', sanitizeToDOH(value));
+    const answer = await post("toDOH", sanitizeToDOH(value));
     if (answer.acknowledged) {
       toast({
         title: "Yeah!",
@@ -54,8 +64,6 @@ const AddToMEH = () => {
     setIsLoading(false);
   };
 
-  
-
   return (
     <>
       <Header title="WHAT DOH toMEH" />
@@ -65,7 +73,7 @@ const AddToMEH = () => {
             <HStack spacing="1rem">
               <Label>Name toDOH!</Label>
               <Input
-                name='name'
+                name="name"
                 required
                 onChange={handleValueChange}
                 focusBorderColor="#FFC12C"
@@ -76,7 +84,7 @@ const AddToMEH = () => {
             <HStack spacing="1rem">
               <Label>What toDOH?</Label>
               <Input
-                name='content'
+                name="content"
                 required
                 onChange={handleValueChange}
                 focusBorderColor="#FFC12C"
@@ -87,7 +95,7 @@ const AddToMEH = () => {
             <HStack spacing="1rem">
               <Label>HoW toDOH?</Label>
               <Input
-                name='description'
+                name="description"
                 required
                 onChange={handleValueChange}
                 focusBorderColor="#FFC12C"
@@ -95,9 +103,9 @@ const AddToMEH = () => {
                 value={value.description}
               ></Input>
             </HStack>
-            <HStack >
+            <HStack>
               <Checkbox
-                name='isInside'
+                name="isInside"
                 size="lg"
                 colorScheme="teal"
                 isChecked={value.isInside}
@@ -105,14 +113,14 @@ const AddToMEH = () => {
               >
                 wanna DOH it inside?
               </Checkbox>
-            </HStack >
+            </HStack>
             <HStack mb="2rem">
               <Checkbox
-                name='isDone'
-                colorScheme="teal" 
+                name="isDone"
+                colorScheme="teal"
                 isChecked={value.isDone}
                 onChange={handleValueChange}
-                size="lg" 
+                size="lg"
               >
                 already DOHne it?
               </Checkbox>
@@ -126,7 +134,7 @@ const AddToMEH = () => {
               value="Submit"
               background="linear-gradient(310deg, rgba(255, 184, 12, 0.53) 1.53%, #f09f1B 110%)"
               isLoading={isLoading}
-            > 
+            >
               give DOH in
             </Button>
           </VStack>
@@ -134,7 +142,7 @@ const AddToMEH = () => {
       </Flex>
     </>
   );
-}
+};
 const Form = styled.form`
   font-size: 1.2em;
 `;

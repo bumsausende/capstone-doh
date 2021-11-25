@@ -1,19 +1,16 @@
 import styled from "styled-components";
 import Link from "next/link";
 import React from "react";
-import { Flex, Heading } from "@chakra-ui/layout";
+import { Flex } from "@chakra-ui/layout";
 import Image from "next/image";
 import Header from "../components/Header";
 
 const Home = () => {
   return (
     <>
-      <Header title="WHAT?"/>
+      <Header title="WHAT?" />
       <Content>
-        <Flex
-          display="flex"
-          flexDirection="column"
-        >
+        <Flex display="flex" flexDirection="column">
           <p>
             need to get in flow? need some motivation today? haven&apos;t done
             anything yet? then get up your a** and{" "}

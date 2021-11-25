@@ -14,11 +14,7 @@ function IndexPage() {
       <IndexPageContainer className="StartScreen">
         <Link href="/Home">
           <a>
-            <Image
-              src="/images/starLOGO.svg"
-              alt="logo"
-              layout="fill"
-            />
+            <Image src="/images/starLOGO.svg" alt="logo" layout="fill" />
           </a>
         </Link>
       </IndexPageContainer>
@@ -27,10 +23,8 @@ function IndexPage() {
 }
 export default IndexPage;
 
-const image = styled.section``;
 const IndexPageContainer = styled.section`
   background-color: #5dc8a8;
   height: 100vh;
   width: 100vw;
 `;
-const Button = styled.section``;

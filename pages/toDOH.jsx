@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ToDOHModal from "../components/Modal";
 import { Button } from "@chakra-ui/button";
-import { Flex, Grid,  Heading } from "@chakra-ui/layout";
+import { Flex, Grid } from "@chakra-ui/layout";
 import styled from "styled-components";
 import { get } from "../lib/api/apiClient";
 import Header from "../components/Header";
@@ -78,7 +78,9 @@ function YourRandomToDOH({ toDOHs }) {
             pb="100%"
           />
           <Flex alignItems="center">sit down, take a breath</Flex>
-          <Flex alignItems="center">put on jacket and don&apos;t forget sandals</Flex>
+          <Flex alignItems="center">
+            put on jacket and don&apos;t forget sandals
+          </Flex>
           <Button
             bgImage="./images/buttonoutside.svg"
             backgroundSize="contain"
@@ -91,7 +93,7 @@ function YourRandomToDOH({ toDOHs }) {
             onClick={onClickOutside}
             title="get a random outside toDOH"
             pb="100%"
-            />
+          />
         </Grid>
       </Content>
     </>
@@ -105,7 +107,7 @@ const Content = styled.section`
 `;
 
 export async function getServerSideProps(context) {
-  const toDOHs = await get('toDOH');
+  const toDOHs = await get("toDOH");
 
   return {
     props: { toDOHs },

@@ -1,5 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
-
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -36,4 +35,3 @@ body {
     background-Position: 44% 33%, top, top;
 }
 `;
-

@@ -1,7 +1,6 @@
 import { client } from "../../../utils/Database";
 import { ObjectId } from "mongodb";
 
-
 export default async function handler(request, response) {
   try {
     await client.connect();
