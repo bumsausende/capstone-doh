@@ -8,7 +8,7 @@ import { Image } from "@chakra-ui/image";
 function toLUV({ toDOHs }) {
   return (
     <>
-      <Header title="CHOOSE YOUR DOH" />
+      <Header title="the STUFF you have DONE" />
       <Content>
         <VStack>
           {toDOHs
