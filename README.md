@@ -1,8 +1,31 @@
+
+# DOH! 
+__get yourself in flow__
+
+![Component 3](https://user-images.githubusercontent.com/79257621/143784703-d25db6b6-f64f-4961-9dd4-d6cf9abc5585.jpg)
+
+
+>> __need to get in flow? need some motivation today? haven't done anything yet? then get up your a**__
+>> __and DOH something you dont remember wanting to do. or just__
+>> __DOH something nice that you didn't know you liked.__
+
+ 
+
+# how to DOH
+
+well, do you feel unmotivated, don't know what to do with yourself, or really need some procrastination? then go for DOH! it's a mobile app that suggests a randomly selected task - either for indoors or outdoors - with a challenge you probably wouldn't have thought of yourself! of course, you can also create your own fancy tasks for the database or celebrate your achievements. have fun and DOH it!
+
+## What used
+
+This app was created as part of the capstone project of the web development course of "neue fische" in Hamburg, Germany. 
+A mongodb was integrated, API was created, Chakra UI was used for styling and tested with cypress.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
-
-First, run the development server:
+clone this repo
+and
+run the development server:
 
 ```bash
 npm run dev
@@ -12,24 +35,3 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# capstone-doh
