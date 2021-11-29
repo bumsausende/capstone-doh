@@ -21,6 +21,8 @@ This app was created as part of the capstone project of the web development cour
 A mongodb was integrated, API was created, Chakra UI was used for styling and tested with cypress.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Features that are still pending or to be added
+merge E2E testing(cypresssss) , add categories like own, kitchen, bureaucracy etc, add conditions like weather, time etc. 
 
 ## Getting Started
 clone this repo
